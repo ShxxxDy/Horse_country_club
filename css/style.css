@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -39,7 +40,6 @@ nav {
 .logo {
   width: 40%;
   align-items: center;
-  /*background-color: aqua;*/
 }
 
 .logo h2 {
@@ -50,7 +50,6 @@ nav {
   width: 60%;
   justify-content: flex-end;
   align-items: center;
-  /*background-color: blanchedalmond;*/
 }
 
 nav ul li {
@@ -65,24 +64,127 @@ nav ul li a {
   color: inherit; /* Eredita il colore del contenitore genitore */
 }
 
-/* HERO */
-
-.hero {
-  width: 80%;
-  margin-inline: auto;
-  padding-top: 8rem;
+.hamburger {
+  display: none;
 }
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  .logo h2 {
+    font-size: 1.3rem;
+    padding: 1rem 0 1rem 2rem;
+  }
+
+  nav ul li {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .logo h2 {
+    font-size: 1.3rem;
+    padding: 0.8rem 0 0.8rem 1.5rem;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+  }
+
+  nav {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo h2 {
+    font-size: 1rem;
+  }
+}
+
+/* HERO */
 
 .logo h2 a {
   text-decoration: none;
   color: inherit;
 }
 
+.slider {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8rem;
+  margin-inline: auto;
+}
+
+.hero {
+  width: 100%;
+}
+
 .hero img {
   width: 100%;
   height: 600px;
+  display: none;
 }
 
+.hero img:nth-child(1){
+  display: block; /*:nth-child(1) mostra il primo elemento figlio*/
+}
+
+.slider i {
+  font-size: 5rem;
+  color: #252323;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.slider i:hover {
+  transform: scale(1.05); /*ingrandisce l'icona dello slider con l'hover*/
+  color: black;
+}
+
+.slider i:active {
+  color: black;
+  transform: scale(0.95); /*diminuisce l'icona dello slider al click*/
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .hero img {
+    height: 450px;
+  }
+
+  .slider {
+    padding-top: 5rem;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .hero img {
+    height: 350px;
+  }
+
+  .slider {
+    padding-top: 5rem;
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero img {
+    height: 280px;
+  }
+}
 /*ABOUT*/
 
 .box-about {
@@ -108,7 +210,7 @@ nav ul li a {
 }
 
 .about-2-width {
-  width: 60%;
+  width: 90%;
 }
 
 .about-2 h2 {
@@ -127,6 +229,7 @@ nav ul li a {
   background-color:  #c4a181;
   color: #ffffff;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .about-2 button:hover {
@@ -137,17 +240,76 @@ nav ul li a {
   background-color: #916953;
 }
 
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  .box-about {
+    width: 90%;
+  }
+
+  .about-2 h2 {
+    font-size: 2rem;
+    padding: 0 0 1.5rem 0;
+  }
+
+  .about-2 p {
+    line-height: 1.3rem;
+    padding: 0 0 1.5rem 0;
+  }
+
+  .about-2 button {
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .about-1 {
+    display: none;
+  }
+
+  .box-about {
+    width: 85%;
+  }
+
+  .about-2 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-2-width {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-2 h2 {
+    font-size: 2rem;
+    padding: 0 0 1.5rem 0;
+    text-align: center;
+  }
+
+  .about-2 button {
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .box-about {
+    padding-top: 3rem;
+    width: 90%;
+  }
+}
+
 /*SERVICES*/
 
 .services-1 {
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .services-1-width {
-  width: 60%;
+  width: 90%;
 }
 
 .services-1 h2 {
@@ -177,6 +339,7 @@ nav ul li a {
   background-color: #c4a181;
   color: #ffffff;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .services-1 button:hover {
@@ -190,10 +353,80 @@ nav ul li a {
 .services-2 {
   width: 50%;
   display: flex;
+  justify-content: center;
 }
 
 .services-2 img {
   width: 50%;
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  .services-1 h2 {
+    font-size: 2rem;
+    padding: 0 0 1rem 0;
+  }
+
+  .services-1 h3 {
+    display: none;
+  }
+
+  .services-1 h4 {
+    font-size: 1.3rem;
+    padding: 0 0 1rem 0;
+  }
+
+  .services-1 p {
+    line-height: 1.5rem;
+    padding: 0 0 1.5rem 0;
+  }
+
+  .services-1 button {
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .services-2 {
+    display: none;
+  }
+
+  .services-1 h2 {
+    font-size: 2rem;
+    padding: 0 0 1rem 0;
+  }
+
+  .services-1 h3 {
+    display: none;
+  }
+
+  .services-1 h4 {
+    font-size: 1.3rem;
+    padding: 0 0 1rem 0;
+  }
+
+  .box-about {
+    width: 85%;
+  }
+
+  .services-1 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .services-1-width{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services-1 button {
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
 }
 
 /*OUR HORSES*/
@@ -226,6 +459,61 @@ nav ul li a {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+@media screen and (min-width: 551px) and (max-width: 1024px) {
+  .horses-section h2 {
+    font-size: 2rem;
+  }
+
+  .horses-img-1 {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .horses-img {
+    flex-wrap: wrap;
+  }
+
+  .horses-img-1 img {
+    width: 90%;
+    height: 70%;
+  }
+
+  .horses-box p {
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .horses-section h2 {
+    font-size: 2rem;
+    padding: 3rem 0;
+  }
+
+  .horses-img-1 {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .horses-img {
+    flex-wrap: wrap;
+  }
+
+  .horses-img-1 img {
+    width: 90%;
+    height: 70%;
+  }
+
+  .horses-box p {
+    padding-right: 1rem;
+  }
 }
 
 /*TESTIMONIALS*/
@@ -271,6 +559,42 @@ nav ul li a {
   padding-bottom: 2rem;
 }
 
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  .container-testimonials h3 {
+    font-size: 2rem;
+  }
+
+  .remove-3 {
+    display: none;
+  }
+
+  .box-testimonials {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container-testimonials h3 {
+    font-size: 2rem;
+  }
+
+  .remove-3 {
+    display: none;
+  }
+
+  .box-testimonials {
+    width: 100%;
+  }
+
+  .flex-column {
+    flex-direction: column;
+  }
+
+  .container-testimonials {
+    width: 95%;
+  }
+}
+
 /*CONTACTS*/
 
 .container-contacts {
@@ -306,8 +630,6 @@ nav ul li a {
 
 .contacts-form {
   width: 60%;
-  /*display: flex;
-    justify-content: center;*/
 }
 
 .box-form-1 {
@@ -346,8 +668,9 @@ nav ul li a {
   border: none;
   background-color: #c4a181;
   color: #ffffff;
-  padding: 0.7rem 2rem;
+  padding: 1rem 2.5rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .box-form-submit input:hover {
@@ -358,6 +681,57 @@ nav ul li a {
   background-color: #916953;
 }
 
+@media screen and (max-width: 800px) {
+  .container-contacts {
+    width: 90%;
+  }
+
+  .box-form-submit input{
+    padding: 0.8rem 2.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container-contacts {
+    flex-wrap: wrap;
+  }
+  
+  .contacts-text {
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .contacts-text h3 {
+    width: 100%;
+  }
+
+  .contacts-text > p:first-of-type {
+    width: 100%;
+    padding-bottom: 2rem;
+  }
+
+  .contacts-text div {
+    display: none;
+  }
+
+  .contacts-form {
+    width: 100%;
+  }
+
+  .box-form-submit {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container-contacts {
+    padding: 3rem 0;
+  }
+}
+/*FOOTER*/
 
 footer div {
     background-color: #252323;
@@ -367,4 +741,14 @@ footer div {
 footer div p {
     text-align: center;
     color: #ffffff;
+}
+
+@media screen and (max-width: 480px){
+  footer div p {
+    font-size: 0.8rem;
+  }
+
+  footer div {
+    padding: 0.8rem;
+  }
 }
