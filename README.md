@@ -1,4 +1,4 @@
-# One Page Horse Country CLub
+# One Page Horse Country Club
 
 Questo progetto è un sito web one-page sviluppato con HTML, CSS e JavaScript. Il sito presenta un menu di navigazione, una slider di immagini, quattro sezioni che descrivono l'azienda e le attività, e un form di contatti.
 
