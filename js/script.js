@@ -67,3 +67,4 @@ menuItems.forEach(function(item) {
         navMenu.classList.remove("active");
     };
 });
+
